@@ -5,6 +5,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://s3fs.googlecode.com/files/%{name}-%{version}-source.tar.gz
+# Source0-md5:	59754b68a5601ddeaf66cd6460301a47
 URL:		http://code.google.com/p/s3fs/wiki/FuseOverAmazon
 BuildRequires:	curl-devel
 BuildRequires:	libfuse-devel
