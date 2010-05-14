@@ -9,6 +9,7 @@ Source0:	http://s3fs.googlecode.com/files/%{name}-%{version}-source.tar.gz
 URL:		http://code.google.com/p/s3fs/wiki/FuseOverAmazon
 BuildRequires:	curl-devel
 BuildRequires:	libfuse-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
