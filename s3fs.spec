@@ -1,11 +1,12 @@
 Summary:	FUSE-based file system backed by Amazon S3
 Name:		s3fs
-Version:	r191
+Version:	1.61
 Release:	1
+Epoch:		1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://s3fs.googlecode.com/files/%{name}-%{version}-source.tar.gz
-# Source0-md5:	59754b68a5601ddeaf66cd6460301a47
+Source0:	http://s3fs.googlecode.com/files/%{name}-%{version}.tar.gz
+# Source0-md5:	0dd7b7e9b1c58312cde19894488c5072
 URL:		http://code.google.com/p/s3fs/wiki/FuseOverAmazon
 BuildRequires:	curl-devel
 BuildRequires:	libfuse-devel
@@ -25,18 +26,18 @@ s3fs is stable and is being used in number of production environments,
 e.g., rsync backup to s3.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %build
-%{__cxx} %{rpmcxxflags} %{rpmldflags} -Wall  s3fs.cpp -o s3fs \
-	`pkg-config fuse --cflags --libs` `pkg-config libcurl --cflags --libs` \
-	`xml2-config --cflags --libs` -lcrypto
+%configure
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
 
-install s3fs $RPM_BUILD_ROOT%{_bindir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -44,3 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/s3fs.1*
