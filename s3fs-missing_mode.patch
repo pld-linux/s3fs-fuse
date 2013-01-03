@@ -1,0 +1,15 @@
+diff -dur s3fs-1.61.orig/src/s3fs.cpp s3fs-1.61/src/s3fs.cpp
+--- s3fs-1.61.orig/src/s3fs.cpp	2013-01-03 10:05:41.000000000 +0100
++++ s3fs-1.61/src/s3fs.cpp	2013-01-03 10:05:28.000000000 +0100
+@@ -126,7 +126,10 @@
+ }
+ 
+ mode_t get_mode(const char *s) {
+-  return (mode_t) strtoul(s, (char **) NULL, 10);
++  if (s && *s)
++    return (mode_t) strtoul(s, (char **) NULL, 10);
++  else
++    return (mode_t) S_IFREG | 0644;
+ }
+ 
+ uid_t get_uid(const char *s) {

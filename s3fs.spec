@@ -7,6 +7,8 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://s3fs.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	0dd7b7e9b1c58312cde19894488c5072
+Patch0:		%{name}-x-amz-meta.patch
+Patch1:		%{name}-missing_mode.patch
 URL:		http://code.google.com/p/s3fs/wiki/FuseOverAmazon
 BuildRequires:	curl-devel
 BuildRequires:	libfuse-devel
@@ -27,6 +29,8 @@ e.g., rsync backup to s3.
 
 %prep
 %setup -q
+%patch0 -p0
+%patch1 -p1
 
 %build
 %configure
