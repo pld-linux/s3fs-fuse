@@ -1,22 +1,22 @@
 Summary:	FUSE-based file system backed by Amazon S3
-Name:		s3fs
-Version:	1.61
+Name:		s3fs-fuse
+Version:	1.76
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://s3fs.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	0dd7b7e9b1c58312cde19894488c5072
-Patch0:		%{name}-x-amz-meta.patch
-Patch1:		%{name}-missing_mode.patch
-Patch2:		%{name}-cache_check.patch
+Source0:	http://github.com/s3fs-fuse/s3fs-fuse/tarball/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	1f1db900f083aa0b07f66bfa8fc9063a
 URL:		http://code.google.com/p/s3fs/wiki/FuseOverAmazon
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	curl-devel
 BuildRequires:	libfuse-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
+Obsoletes:	s3fs < 1.75
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,12 +29,15 @@ s3fs is stable and is being used in number of production environments,
 e.g., rsync backup to s3.
 
 %prep
-%setup -q
-%patch0 -p0
-%patch1 -p1
-%patch2 -p1
+%setup -qc
+mv s3fs-fuse-s3fs-fuse-*/* .
+%{__rm} -r s3fs-fuse-s3fs-fuse-*
 
 %build
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+
 %configure
 
 %{__make}
