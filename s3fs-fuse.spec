@@ -2,7 +2,6 @@ Summary:	FUSE-based file system backed by Amazon S3
 Name:		s3fs-fuse
 Version:	1.76
 Release:	1
-Epoch:		1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://github.com/s3fs-fuse/s3fs-fuse/tarball/v%{version}/%{name}-%{version}.tar.gz
