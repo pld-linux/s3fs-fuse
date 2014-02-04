@@ -16,7 +16,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
-Obsoletes:	s3fs < 1.75
+Obsoletes:	s3fs < 1:1.75
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
