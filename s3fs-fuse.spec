@@ -1,12 +1,12 @@
 Summary:	FUSE-based file system backed by Amazon S3
 Summary(pl.UTF-8):	Oparty na FUSE system plików wykorzystujący usługę Amazon S3
 Name:		s3fs-fuse
-Version:	1.76
+Version:	1.77
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://github.com/s3fs-fuse/s3fs-fuse/tarball/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	1f1db900f083aa0b07f66bfa8fc9063a
+# Source0-md5:	6b3896b9f10c929ea5254227934912d2
 URL:		https://github.com/s3fs-fuse/s3fs-fuse/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
