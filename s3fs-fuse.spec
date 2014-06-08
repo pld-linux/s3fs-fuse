@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://github.com/s3fs-fuse/s3fs-fuse/tarball/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	1f1db900f083aa0b07f66bfa8fc9063a
-URL:		http://code.google.com/p/s3fs/wiki/FuseOverAmazon
+URL:		https://github.com/s3fs-fuse/s3fs-fuse/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.0
