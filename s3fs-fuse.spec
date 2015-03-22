@@ -1,12 +1,14 @@
 Summary:	FUSE-based file system backed by Amazon S3
 Summary(pl.UTF-8):	Oparty na FUSE system plików wykorzystujący usługę Amazon S3
 Name:		s3fs-fuse
-Version:	1.78
+%define	_snap	20150322
+%define _hash	d7327df
+Version:	1.78.%{_snap}
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://github.com/s3fs-fuse/s3fs-fuse/tarball/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	e194c14c779fe113700af950c55ffb7b
+Source0:	http://github.com/s3fs-fuse/s3fs-fuse/tarball/%{_hash}/%{name}-%{_hash}.tar.gz
+# Source0-md5:	fee97aaabb944c312724e630ab3aca8a
 URL:		https://github.com/s3fs-fuse/s3fs-fuse/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -40,9 +42,7 @@ s3fs jest stabilny, używany w wielu środowiskach produkcyjnych, np.
 synchronizacja kopii zapasowych na s3.
 
 %prep
-%setup -qc
-mv s3fs-fuse-s3fs-fuse-*/* .
-%{__rm} -r s3fs-fuse-s3fs-fuse-*
+%setup -qn s3fs-fuse-s3fs-fuse-%{_hash}
 
 %build
 %{__aclocal}
